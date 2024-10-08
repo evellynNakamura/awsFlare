@@ -14,6 +14,6 @@ jobs:
       - name: Deply no EC2
         run: |
           echo "${{secrets.key}}" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyCheking-no -i private_key ubuntu@ec2-3-84-246-76.compute-1.amazonaws.com  "
+          ssh -o StrictHostKeyCheking=no -i private_key ubuntu@ec2-3-84-246-76.compute-1.amazonaws.com  "
               cd /var/www/html/awsFlare &&
               sudo git pull "
