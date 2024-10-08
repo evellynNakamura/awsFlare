@@ -1,5 +1,4 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy pagina statica
+name: Deploy site estatico
 
 on:
   # Runs on pushes targeting the default branch
@@ -7,13 +6,12 @@ on:
     branches: ["master"]
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deply no EC2
+      - name: Deploy no EC2
         run: |
-          echo "${{secrets.key}}" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyCheking=no -i private_key ubuntu@ec2-3-84-246-76.compute-1.amazonaws.com  "
-              cd /var/www/html/awsFlare &&
-              sudo git pull "
+           echo "${{secrets.KEY_G}}" > private_key && chmod 600 private_key
+           ssh -o StrictHostKeyChecking=no -i private_key ubuntu@ec2-54-198-104-154.compute-1.amazonaws.com  "
+                  cd /var/www/html/awsFlare &&
+                  sudo git pull "
